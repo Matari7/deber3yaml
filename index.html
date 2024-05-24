@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente YAML</title>
+</head>
+<body>
+    <h1>Cliente YAML</h1>
+    <button id="fetchButton">Obtener Datos</button>
+    <button id="sendButton">Enviar Datos</button>
+    <pre id="output"></pre>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', () => {
+            fetch('http://localhost:3000/api/data')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output').textContent = data;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('sendButton').addEventListener('click', () => {
+            const yamlData = `
+user:
+  username: juan
+  email: juan@example.com
+            `;
+
+            fetch('http://localhost:3000/api/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-yaml',
+                },
+                body: yamlData,
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output').textContent = data;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
