@@ -12,13 +12,10 @@
     <pre id="output"></pre>
 
     <script>
-
-        const apiUrl = process.env.NODE_ENV === 'production' 
-            ? 'https://tu-dominio.com/api/data' 
-            : 'http://localhost:3000/api/data';
+        const apiUrl = 'https://tu-dominio.com/api/data'; // Reemplaza 'tu-dominio.com' con la URL de tu aplicación en DigitalOcean
 
         document.getElementById('fetchButton').addEventListener('click', () => {
-            fetch('http://localhost:3000/api/data')
+            fetch(apiUrl)
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('output').textContent = data;
@@ -33,7 +30,7 @@ user:
   email: juan@example.com
             `;
 
-            fetch('http://localhost:3000/api/data', {
+            fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-yaml',
