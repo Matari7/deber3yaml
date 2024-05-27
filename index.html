@@ -14,11 +14,11 @@
     <script>
 
         const apiUrl = process.env.NODE_ENV === 'production' 
-            ? 'https://deber3yaml-rag8h.ondigitalocean.app/api/data' 
+            ? 'https://tu-dominio.com/api/data' 
             : 'http://localhost:3000/api/data';
 
         document.getElementById('fetchButton').addEventListener('click', () => {
-            fetch(apiUrl)
+            fetch('http://localhost:3000/api/data')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('output').textContent = data;
@@ -33,7 +33,7 @@ user:
   email: juan@example.com
             `;
 
-            fetch(apiUrl, {
+            fetch('http://localhost:3000/api/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-yaml',
