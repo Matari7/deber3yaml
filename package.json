@@ -1,9 +1,9 @@
 {
   "name": "deber3yaml",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "serveryaml.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node serveryaml.js"
   },
   "keywords": [],
   "author": "",
