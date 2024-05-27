@@ -15,7 +15,7 @@
         const apiUrl = 'https://deber3yaml-rag8h.ondigitalocean.app/api/data'; // Reemplaza 'tu-dominio.com' con la URL de tu aplicación en DigitalOcean
 
         document.getElementById('fetchButton').addEventListener('click', () => {
-            fetch(apiUrl)
+            fetch(apiUrl) /*fetch ('http://localhost:3000/api/data')*/
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('output').textContent = data;
